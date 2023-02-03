@@ -31,6 +31,8 @@ builder.Services.AddCors(options => options.AddPolicy("AllowWebApp",
     ));
 
 
+
+
 // INYECCIÓN DE DEPENDENCIAS * (Agregar database connection)
 builder.Services.AddTransient<IUserRepository, UserService>();
 
@@ -48,6 +50,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("AllowWebApp"); // Cors
 
 app.UseHttpsRedirection();
 
